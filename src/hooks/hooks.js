@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { fetchCharacters } from '../services/AvatarApi';
 
 
-const CharacterHook = () => { 
+const useCharacterHook = () => { 
   const [loading, setLoading] = useState(true);
-  const [avatar, setCharacter] = useState([]);
+  const [characters, setCharacter] = useState([]);
   
   useEffect(() => { 
     fetchCharacters()
@@ -13,19 +13,8 @@ const CharacterHook = () => {
       })
       .finally(() => setLoading(false));
   }, []);
-    
-  return { loading, avatar };
+
+  return { loading, characters };
 };
   
-export default CharacterHook;
-  
-
-// export const useCharacters = () => {
-//   const [events, setEvents] = useState([]);
-
-//   useEffect(() => {
-//     fetchCharacters().then((events) => setEvents(events));
-//   }, []);
-
-//   return events;
-// };
+export default useCharacterHook;

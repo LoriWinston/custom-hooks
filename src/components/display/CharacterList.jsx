@@ -18,11 +18,44 @@ const CharacterList = ({ characters }) => (
 CharacterList.propTypes = {
   characters: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  )
 };
 
 export default CharacterList;
+
+// const CharacterList = ({ characters, loading }) => {
+ 
+//   return (
+//     <div>
+//       {
+//         loading
+//           ?
+//           <h2>Loading...</h2>
+//           :
+//           <ul  aria-label="characters">
+//             {characters.map(character => 
+//               (<li key={character.id}>
+//                 <Character 
+//                   id={character.id}
+//                   name={character.name}
+//                   image={character.image}
+//                 />
+//               </li>) 
+//             )}
+//           </ul>
+//       }
+//     </div>
+//   );
+    
+// };
+
+// CharacterList.propTypes = { 
+//   characters: PropTypes.array.isRequired,
+//   loading: PropTypes.bool.isRequired
+// };
+
+// export default CharacterList;
