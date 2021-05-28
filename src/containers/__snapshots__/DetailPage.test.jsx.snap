@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailPage renders a character to the page 1`] = `
+<h2>
+  Afiko
+</h2>
+`;
