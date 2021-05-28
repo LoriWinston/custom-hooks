@@ -5,12 +5,14 @@ import {
   Route, 
   Switch } from 'react-router-dom';
 import DetailPage from '../../containers/DetailPage';
+import Header from '../../components/display/Header';
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <Router>
+          <Header />
           <br/>
           <Switch>
             <Route
