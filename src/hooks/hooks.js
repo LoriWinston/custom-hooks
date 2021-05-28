@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { fetchCharacters } from '../services/AvatarApi';
+import { fetchCharacters, getOneAvatar } from '../services/AvatarApi';
+import { useParams } from 'react-router-dom';
 
 
-const useCharacterHook = () => { 
+export const useCharacterHook = () => { 
   const [loading, setLoading] = useState(true);
   const [characters, setCharacter] = useState([]);
   
@@ -16,5 +17,20 @@ const useCharacterHook = () => {
 
   return { loading, characters };
 };
-  
-export default useCharacterHook;
+
+export const useOneCharacter = () => {
+  const [loading, setLoading] = useState(true);
+  const [oneCharacter, setOneCharacter] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    getOneAvatar(id)
+      .then(oneCharacter => {
+        setOneCharacter(oneCharacter);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { oneCharacter, loading };
+};
+

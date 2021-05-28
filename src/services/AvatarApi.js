@@ -12,9 +12,9 @@ export const fetchCharacters = async () => {
     
 export const getOneAvatar = async (id) => {
   const res = await fetch(`https://last-airbender-api.herokuapp.com/api/v1/characters/${id}?affiliation=Fire+Nation`);
-  
+  console.log('api read', res);
   const oneCharacter = await res.json();
-      
+     console.log('one character!!', oneCharacter); 
   return oneCharacter;
 };
   

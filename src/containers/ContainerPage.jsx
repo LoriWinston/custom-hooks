@@ -1,5 +1,5 @@
 import React from 'react';
-import useCharacterHook from '../hooks/hooks';
+import { useCharacterHook } from '../hooks/hooks';
 import CharacterList from '../components/display/CharacterList';
 
 const ContainerPage = () => {

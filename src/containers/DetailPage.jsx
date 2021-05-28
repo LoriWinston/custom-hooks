@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { fetchCharacters } from '../services/AvatarApi';
+import React from 'react';
+import { useOneCharacter } from '../hooks/hooks';
 
 
-const DetailPage = (props) => {
 
-  const [oneCharacter, setOneCharacter] = useState({});
-  const [loading, setLoading] = useState(true);
+const DetailPage = () => {
+  const { oneCharacter, loading } = useOneCharacter();
 
-  useEffect(() => { 
-    fetchCharacters(props.match.params.id)
-      .then(avatar => { 
-        setOneCharacter(avatar);
-      })
-      .finally(() => setLoading(false));
-  }, []);
   
   return (
     <div>
